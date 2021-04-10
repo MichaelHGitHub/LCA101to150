@@ -1705,6 +1705,54 @@ void CheckResults(TD_T_VI testData, vector<int> result)
     std::cout << endl;
 }
 
+void PrintInput(TD_T_VVI testData)
+{
+    std::cout << "Input :";
+    PrintData(testData.input);
+    std::cout << endl;
+}
+void CheckResults(TD_T_VVI testData, vector<vector<int>> result)
+{
+    std::cout << "Output: ";
+    PrintData(result);
+    std::cout << endl;
+
+    if (Are2DimensionArrayEqual(testData.output, result))
+    {
+        std::cout << "Succeeded!" << endl;
+    }
+    else
+    {
+        std::cout << "***Failed!***" << endl;
+        std::cout << "Expect: " << endl;
+        PrintData(testData.output);
+        std::cout << endl;
+    }
+
+    std::cout << endl;
+}
+
+void CheckResults_Unorder(TD_T_VVI testData, vector<vector<int>> result)
+{
+    std::cout << "Output: ";
+    PrintData(result);
+    std::cout << endl;
+
+    if (Are2DimensionSetEqual(testData.output, result))
+    {
+        std::cout << "Succeeded!" << endl;
+    }
+    else
+    {
+        std::cout << "***Failed!***" << endl;
+        std::cout << "Expect: " << endl;
+        PrintData(testData.output);
+        std::cout << endl;
+    }
+
+    std::cout << endl;
+}
+
 void PrintInput(TD_I_VT testData)
 {
     std::cout << "Input :";
