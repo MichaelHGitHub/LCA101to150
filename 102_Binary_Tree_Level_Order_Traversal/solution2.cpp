@@ -14,12 +14,15 @@ vector<vector<int>> levelOrder2(TreeNode* root)
     
     queue<TreeNode*> pending_nodes;
     pending_nodes.push(root);
-    int level = 0;
 
     while (!pending_nodes.empty())
     {
         // So far all the nodes in pending_nodes are at the same level
         int num_of_cur_lev = pending_nodes.size();
+        result.push_back(vector<int>(num_of_cur_lev, 0));
+
+        // Just use result size to track level
+        int level = result.size() - 1;
 
         // Handle all and only the nodes at this level so that
         // we can keep tracking level
@@ -28,11 +31,7 @@ vector<vector<int>> levelOrder2(TreeNode* root)
             TreeNode* node = pending_nodes.front();
             pending_nodes.pop();
 
-            if (level >= result.size())
-            {
-                result.push_back(vector<int>());
-            }
-            result[level].push_back(node->val);
+            result[level][i] = node->val;
 
             if (node->left != nullptr)
             {
@@ -44,8 +43,6 @@ vector<vector<int>> levelOrder2(TreeNode* root)
                 pending_nodes.push(node->right);
             }
         }
-        // Prepare for next level
-        ++level;
     }
 
     return result;
