@@ -80,6 +80,13 @@ struct TD_T_I
     int output;
 };
 
+struct TD_VI_VI_T
+{
+    vector<int> input;
+    vector<int> input2;
+    TreeNode* output;
+};
+
 struct TD_T_VI
 {
     TreeNode* input;
@@ -496,6 +503,9 @@ void CheckResults(TD_L_L testData, ListNode* result);
 
 void PrintInput(TD_T_I testData);
 void CheckResults(TD_T_I testData, int result);
+
+void PrintInput(TD_VI_VI_T testData);
+void CheckResults(TD_VI_VI_T testData, TreeNode* result);
 
 void PrintInput(TD_T_VI testData);
 void CheckResults(TD_T_VI testData, vector<int> result);
