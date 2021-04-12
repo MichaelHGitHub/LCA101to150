@@ -1612,7 +1612,7 @@ TreeNode* GenerateTree(vector<int> v)
         TreeNode* cur = nodes.front();
         nodes.pop();
 
-        if (count < v.size() && v[count] != NULL)
+        if (count < v.size() && v[count] != NULL_NODE_VALUE)
         {
             TreeNode* node = new TreeNode(v[count]);
             cur->left = node;
@@ -1624,7 +1624,7 @@ TreeNode* GenerateTree(vector<int> v)
         }
         ++count;
 
-        if (count < v.size() && v[count] != NULL)
+        if (count < v.size() && v[count] != NULL_NODE_VALUE)
         {
             TreeNode* node = new TreeNode(v[count]);
             cur->right = node;
@@ -1749,6 +1749,33 @@ void CheckResults(TD_VI_VI_T testData, TreeNode* result)
     std::cout << endl;
 
     if (IsSameTree(testData.output,result))
+    {
+        std::cout << "Succeeded!" << endl;
+    }
+    else
+    {
+        std::cout << "***Failed!***" << endl;
+        std::cout << "Expect: " << endl;
+        PrintData(testData.output);
+        std::cout << endl;
+    }
+
+    std::cout << endl;
+}
+
+void PrintInput(TD_VI_T testData)
+{
+    std::cout << "Input :";
+    PrintData(testData.input);
+    std::cout << endl;
+}
+void CheckResults(TD_VI_T testData, TreeNode* result)
+{
+    std::cout << "Output: ";
+    PrintData(result);
+    std::cout << endl;
+
+    if (IsSameTree(testData.output, result))
     {
         std::cout << "Succeeded!" << endl;
     }

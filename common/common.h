@@ -24,6 +24,8 @@ struct TreeNode {
     TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
 };
 
+#define NULL_NODE_VALUE INT32_MIN-99
+
 template<typename T>
 void PrintData(T t);
 
@@ -78,6 +80,13 @@ struct TD_T_I
 {
     TreeNode* input;
     int output;
+};
+
+
+struct TD_VI_T
+{
+    vector<int> input;
+    TreeNode* output;
 };
 
 struct TD_VI_VI_T
@@ -506,6 +515,9 @@ void CheckResults(TD_T_I testData, int result);
 
 void PrintInput(TD_VI_VI_T testData);
 void CheckResults(TD_VI_VI_T testData, TreeNode* result);
+
+void PrintInput(TD_VI_T testData);
+void CheckResults(TD_VI_T testData, TreeNode* result);
 
 void PrintInput(TD_T_VI testData);
 void CheckResults(TD_T_VI testData, vector<int> result);

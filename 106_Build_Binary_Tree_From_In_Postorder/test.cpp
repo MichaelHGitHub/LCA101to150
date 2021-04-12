@@ -6,7 +6,7 @@ void PrepareTestData(vector<TD_VI_VI_T>& testData)
 
     data.input = { 9,3,15,20,7 };
     data.input2 = { 9,15,7,20,3 };
-    data.output = GenerateTree({ 3,9,20,NULL,NULL,15,7 });
+    data.output = GenerateTree({ 3,9,20,NULL_NODE_VALUE,NULL_NODE_VALUE,15,7 });
     testData.push_back(data);
 
     data.input = { -1 };

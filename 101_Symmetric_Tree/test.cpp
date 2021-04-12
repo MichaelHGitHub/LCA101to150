@@ -8,7 +8,7 @@ void PrepareTestData(vector<TD_T_B>& testData)
     data.output = true;
     testData.push_back(data);
 
-    data.input = GenerateTree({ 1, 2, 2, NULL, 3, NULL, 3 });
+    data.input = GenerateTree({ 1, 2, 2, NULL_NODE_VALUE, 3, NULL_NODE_VALUE, 3 });
     data.output = false;
     testData.push_back(data);
 

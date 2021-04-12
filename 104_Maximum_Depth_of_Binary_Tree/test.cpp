@@ -4,11 +4,11 @@ void PrepareTestData(vector<TD_T_I>& testData)
 {
     TD_T_I data;
 
-    data.input = GenerateTree({ 3,9,20,NULL,NULL,15,7 });
+    data.input = GenerateTree({ 3,9,20,NULL_NODE_VALUE,NULL_NODE_VALUE,15,7 });
     data.output = 3;
     testData.push_back(data);
 
-    data.input = GenerateTree({ 1,NULL,2 });
+    data.input = GenerateTree({ 1,NULL_NODE_VALUE,2 });
     data.output = 2;
     testData.push_back(data);
 
