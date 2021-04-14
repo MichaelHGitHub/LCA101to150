@@ -76,6 +76,12 @@ struct TD_L_I_I_L
     ListNode* output;
 };
 
+struct TD_L_T
+{
+    ListNode* input;
+    TreeNode* output;
+};
+
 struct TD_T_I
 {
     TreeNode* input;
@@ -509,6 +515,9 @@ void CheckResults(TD_VVC_VVC testData, vector<vector<char>> result);
 
 void PrintInput(TD_L_L testData);
 void CheckResults(TD_L_L testData, ListNode* result);
+
+void PrintInput(TD_L_T testData);
+void CheckResults(TD_L_T testData, TreeNode* result);
 
 void PrintInput(TD_T_I testData);
 void CheckResults(TD_T_I testData, int result);
