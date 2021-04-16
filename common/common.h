@@ -88,6 +88,13 @@ struct TD_T_I
     int output;
 };
 
+struct TD_T_I_B
+{
+    TreeNode* input;
+    int input2;
+    bool output;
+};
+
 
 struct TD_VI_T
 {
@@ -521,6 +528,9 @@ void CheckResults(TD_L_T testData, TreeNode* result);
 
 void PrintInput(TD_T_I testData);
 void CheckResults(TD_T_I testData, int result);
+
+void PrintInput(TD_T_I_B testData);
+void CheckResults(TD_T_I_B testData, bool result);
 
 void PrintInput(TD_VI_VI_T testData);
 void CheckResults(TD_VI_VI_T testData, TreeNode* result);
