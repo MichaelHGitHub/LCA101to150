@@ -134,12 +134,17 @@ struct TD_I_VT
     vector<TreeNode*> output;
 };
 
+struct TD_T_T
+{
+    TreeNode* input;
+    TreeNode* output;
+};
+
 struct TD_T_B
 {
     TreeNode* input;
     bool output;
 };
-
 
 struct TD_T_T_B
 {
@@ -561,6 +566,9 @@ void CheckResults(TD_I_VT testData, vector<TreeNode*> result);
 
 void PrintInput(TD_T_B testData);
 void CheckResults(TD_T_B testData, bool result);
+
+void PrintInput(TD_T_T testData);
+void CheckResults(TD_T_T testData);
 
 void PrintInput(TD_T_T_B testData);
 void CheckResults(TD_T_T_B testData, bool result);
