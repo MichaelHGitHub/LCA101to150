@@ -68,6 +68,14 @@ bool IsSameTree(TreeNode* p, TreeNode* q);
 
 vector<TreeNode*> GenerateTrees(vector<vector<int>> v);
 
+Node* GenerateTreeLinkedList(vector<int> values);
+
+struct TD_N_VI
+{
+    Node* input;
+    vector<int> output;
+};
+
 struct TD_L_L
 {
     ListNode* input;
@@ -428,6 +436,10 @@ struct TD_VVC_VVC
     vector<vector<char>> input;
     vector<vector<char>> output;
 };
+
+void PrintInput(TD_N_VI data);
+void CheckResults(TD_N_VI data, Node* node);
+bool CheckResult(vector<int> output, Node* result);
 
 void PrintInput(TD_S_S testData);
 void CheckResults(TD_S_S testData, string result);
