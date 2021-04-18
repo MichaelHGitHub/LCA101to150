@@ -17,16 +17,20 @@ Node* connect(Node* root)
         // So far, all the nodes in the queue are at the same level.
         int width_of_level = pending_nodes.size();
 
-        Node* node = nullptr;
         for (int i = 0; i < width_of_level; i++)
         {
-            if (node)
+            Node* node = pending_nodes.front();
+            pending_nodes.pop();
+
+            // Handle last node differently.
+            if (i < width_of_level - 1)
             {
                 node->next = pending_nodes.front();
             }
-
-            node = pending_nodes.front();
-            pending_nodes.pop();
+            else
+            {
+                node->next = nullptr;
+            }
 
             if (node->left)
             {
@@ -38,9 +42,6 @@ Node* connect(Node* root)
                 pending_nodes.push(node->right);
             }
         }
-
-        // Handle last node of the level
-        node->next = nullptr;
     }
 
     return root;
