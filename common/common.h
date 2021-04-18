@@ -49,6 +49,9 @@ void PrintData(T t);
 template<typename T>
 void PrintData(vector<T> v);
 
+template<>
+void PrintData(vector<int> v);
+
 template<typename T>
 bool AreVectorEqual(vector<T> v1, vector<T> v2);
 

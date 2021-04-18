@@ -40,6 +40,29 @@ void PrintData(vector<T> v)
 }
 
 template<>
+void PrintData(vector<int> v)
+{
+    std::cout << "{";
+    for (int i = 0; i < v.size(); i++)
+    {
+        if (v[i] == NULL_NODE_VALUE)
+        {
+            std::cout << "#";
+        }
+        else
+        {
+            std::cout << v[i];
+        }
+
+        if (i != v.size() - 1)
+        {
+            std::cout << " ,";
+        }
+    }
+    std::cout << "}";
+}
+
+template<>
 void PrintData(vector<ListNode*> vl)
 {
     for (int i = 0; i < vl.size(); i++)
@@ -2275,12 +2298,16 @@ bool CheckResult(vector<int> v, Node* root)
 
         for (int i = 0; i < width_of_level; i++)
         {
-            if (next->val != v[count++])
+            if (next)
             {
-                return false;
+                if (next->val != v[count++])
+                {
+                    return false;
+                }
+                
+                next = next->next;
             }
-
-            next = next->next;
+            
 
             cur = nodes.front();
             nodes.pop();
@@ -2310,6 +2337,7 @@ void PrintData(Node* root)
     if (root == nullptr)
     {
         cout << "#";
+        return;
     }
 
     queue<Node*> nodes;
@@ -2324,8 +2352,11 @@ void PrintData(Node* root)
 
         for (int i = 0; i < width_of_level; i++)
         {
-            cout << next->val << " ,";
-            next = next->next;
+            if (next)
+            {
+                cout << next->val << " ,";
+                next = next->next;
+            }
 
             cur = nodes.front();
             nodes.pop();
