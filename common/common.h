@@ -257,6 +257,12 @@ struct TD_VS_VVS
     vector<vector<string>> output;
 };
 
+struct TD_S_VVS
+{
+    string input;
+    vector<vector<string>> output;
+};
+
 struct TD_I_S
 {
     int input;
@@ -513,6 +519,11 @@ void CheckResults(TD_VS_S testData, string result);
 void PrintInput(TD_VS_VVS testData);
 void CheckResults(TD_VS_VVS testData, vector<vector<string>> result);
 void CheckResults_Unoder(TD_VS_VVS testData, vector<vector<string>> result);
+
+void PrintInput(TD_S_VVS testData);
+void CheckResults(TD_S_VVS testData, vector<vector<string>> result);
+void CheckResults_Unoder(TD_S_VVS testData, vector<vector<string>> result);
+
 
 void PrintInput(TD_VI_I_VI testData);
 void CheckResults(TD_VI_I_VI testData, vector<int> result);

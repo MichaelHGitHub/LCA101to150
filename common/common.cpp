@@ -966,6 +966,55 @@ void CheckResults_Unoder(TD_VS_VVS testData, vector<vector<string>> result)
     std::cout << endl;
 }
 
+void PrintInput(TD_S_VVS testData)
+{
+    std::cout << "Input :";
+    PrintData(testData.input);
+    std::cout << endl;
+}
+
+void CheckResults(TD_S_VVS testData, vector<vector<string>> result)
+{
+    std::cout << "Output: ";
+    PrintData(result);
+    std::cout << endl;
+
+    if (Are2DimensionArrayEqual(testData.output, result))
+    {
+        std::cout << "Succeeded!" << endl;
+    }
+    else
+    {
+        std::cout << "***Failed!***" << endl;
+        std::cout << "Expect: ";
+        PrintData(testData.output);
+        std::cout << endl;
+    }
+
+    std::cout << endl;
+}
+void CheckResults_Unoder(TD_S_VVS testData, vector<vector<string>> result)
+{
+    std::cout << "Output: ";
+    PrintData(result);
+    std::cout << endl;
+
+    if (Are2DimensionSetEqual(testData.output, result))
+    {
+        std::cout << "Succeeded!" << endl;
+    }
+    else
+    {
+        std::cout << "***Failed!***" << endl;
+        std::cout << "Expect: ";
+        PrintData(testData.output);
+        std::cout << endl;
+    }
+
+    std::cout << endl;
+}
+
+
 void PrintInput(TD_VI_I_I testData)
 {
     std::cout << "Input1 :";
