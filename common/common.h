@@ -5,6 +5,12 @@
 
 using namespace std;
 
+#ifdef GRAPH_PROBLEM
+    #define Node GraphNode
+#else
+    #define Node TreeLinkNode
+#endif
+
 //Definition for singly-linked list.
 struct ListNode
 {
@@ -25,20 +31,39 @@ struct TreeNode {
 };
 
 
-// Definition for a Tree-Link Node.
-struct Node {
+// Definition for a Tree-Link TreeLinkNode.
+struct TreeLinkNode {
 public:
     int val;
-    Node* left;
-    Node* right;
-    Node* next;
+    TreeLinkNode* left;
+    TreeLinkNode* right;
+    TreeLinkNode* next;
 
-    Node() : val(0), left(NULL), right(NULL), next(NULL) {}
+    TreeLinkNode() : val(0), left(NULL), right(NULL), next(NULL) {}
 
-    Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
+    TreeLinkNode(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
 
-    Node(int _val, Node* _left, Node* _right, Node* _next)
+    TreeLinkNode(int _val, TreeLinkNode* _left, TreeLinkNode* _right, TreeLinkNode* _next)
         : val(_val), left(_left), right(_right), next(_next) {}
+};
+
+// Definition for a Graph TreeLinkNode.
+struct GraphNode {
+public:
+    int val;
+    vector<GraphNode*> neighbors;
+    GraphNode() {
+        val = 0;
+        neighbors = vector<GraphNode*>();
+    }
+    GraphNode(int _val) {
+        val = _val;
+        neighbors = vector<GraphNode*>();
+    }
+    GraphNode(int _val, vector<GraphNode*> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
 };
 
 #define NULL_NODE_VALUE INT32_MIN-99
@@ -69,13 +94,18 @@ void PrintTree(TreeNode* root);
 TreeNode* GenerateTree(vector<int> v);
 bool IsSameTree(TreeNode* p, TreeNode* q);
 
+void PrintGraph(GraphNode* root);
+GraphNode* GenerateGraph(vector<vector<int>> v);
+bool AreSameGraph(GraphNode* p, GraphNode* q);
+bool AreSameAdjacentList(vector<GraphNode*> v1, vector<GraphNode*> v2);
+
 vector<TreeNode*> GenerateTrees(vector<vector<int>> v);
 
-Node* GenerateTreeLinkedList(vector<int> values);
+TreeLinkNode* GenerateTreeLinkedList(vector<int> values);
 
 struct TD_N_VI
 {
-    Node* input;
+    TreeLinkNode* input;
     vector<int> output;
 };
 
@@ -124,6 +154,12 @@ struct TD_T_I_B
     TreeNode* input;
     int input2;
     bool output;
+};
+
+struct TD_G_G
+{
+    GraphNode* input;
+    GraphNode* output;
 };
 
 
@@ -447,8 +483,8 @@ struct TD_VVC_VVC
 };
 
 void PrintInput(TD_N_VI data);
-void CheckResults(TD_N_VI data, Node* node);
-bool CheckResult(vector<int> output, Node* result);
+void CheckResults(TD_N_VI data, TreeLinkNode* node);
+bool CheckResult(vector<int> output, TreeLinkNode* result);
 
 void PrintInput(TD_S_S testData);
 void CheckResults(TD_S_S testData, string result);
@@ -631,6 +667,7 @@ void CheckResults(TD_L_I_I_L testData, ListNode* result);
 void PrintInput(TD_VL_L testData);
 void CheckResults(TD_VL_L testData, ListNode* result);
 
-
+void PrintInput(TD_G_G testData);
+void CheckResults(TD_G_G testData, GraphNode* result);
 
 

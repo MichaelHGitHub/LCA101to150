@@ -2,6 +2,8 @@
 #include <set>
 #include <queue>
 #include <stack>
+#include <unordered_set>
+#include <map>
 #include "common.h"
 
 using namespace std;
@@ -22,6 +24,12 @@ template<>
 void PrintData(TreeNode* t)
 {
     PrintTree(t);
+}
+
+template<>
+void PrintData(GraphNode* t)
+{
+    PrintGraph(t);
 }
 
 template<typename T>
@@ -147,6 +155,47 @@ bool AreVectorEqual(vector<T> v1, vector<T> v2)
             return false;
         }
     }
+
+    return true;
+}
+
+bool AreSameAdjacentList(vector<GraphNode*> v1, vector<GraphNode*> v2)
+{
+    for (int i = 0; i < v1.size(); i++)
+    {
+        int j = 0;
+        for (; j < v2.size(); j++)
+        {
+            if (v1[i]->val == v2[j]->val)
+            {
+                break;
+            }
+        }
+
+        if (j >= v2.size())
+        {
+            return false;
+        }
+    }
+
+    for (int j = 0; j < v2.size(); j++)
+    {
+        int i = 0;
+        for (; i < v1.size(); i++)
+        {
+            if (v1[i]->val == v2[j]->val)
+            {
+                break;
+            }
+        }
+
+        if (i >= v1.size())
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 template<>
@@ -1597,6 +1646,32 @@ void CheckResults(TD_VL_L testData, ListNode* result)
     std::cout << endl;
 }
 
+void PrintInput(TD_G_G testData)
+{
+    std::cout << "Input :" << endl;
+    PrintData(testData.input);
+    std::cout << endl;
+}
+void CheckResults(TD_G_G testData, GraphNode* result)
+{
+    std::cout << "Output: ";
+    PrintData(result);
+    std::cout << endl;
+
+    if (AreSameGraph(testData.output, result))
+    {
+        std::cout << "Succeeded!" << endl;
+    }
+    else
+    {
+        std::cout << "***Failed!***" << endl;
+        std::cout << "Expect: ";
+        PrintData(testData.output);
+    }
+
+    std::cout << endl;
+}
+
 ListNode* GenerateLinkedList(vector<int> v)
 {
     if (v.size() < 1)
@@ -2322,7 +2397,7 @@ bool IsSameTree(TreeNode* p, TreeNode* q)
     return result;
 }
 
-bool CheckResult(vector<int> v, Node* root)
+bool CheckResult(vector<int> v, TreeLinkNode* root)
 {
     if (v.size() == 0 && root == nullptr)
     {
@@ -2334,7 +2409,7 @@ bool CheckResult(vector<int> v, Node* root)
         return false;
     }
 
-    queue<Node*> nodes;
+    queue<TreeLinkNode*> nodes;
     nodes.push(root);
 
     int count = 0;
@@ -2342,8 +2417,8 @@ bool CheckResult(vector<int> v, Node* root)
     {
         int width_of_level = nodes.size();
 
-        Node* cur = nodes.front();
-        Node* next = cur;
+        TreeLinkNode* cur = nodes.front();
+        TreeLinkNode* next = cur;
 
         for (int i = 0; i < width_of_level; i++)
         {
@@ -2381,7 +2456,7 @@ bool CheckResult(vector<int> v, Node* root)
     return true;
 }
 
-void PrintData(Node* root)
+void PrintData(TreeLinkNode* root)
 {
     if (root == nullptr)
     {
@@ -2389,15 +2464,15 @@ void PrintData(Node* root)
         return;
     }
 
-    queue<Node*> nodes;
+    queue<TreeLinkNode*> nodes;
     nodes.push(root);
 
     while (!nodes.empty())
     {
         int width_of_level = nodes.size();
 
-        Node* cur = nodes.front();
-        Node* next = cur;
+        TreeLinkNode* cur = nodes.front();
+        TreeLinkNode* next = cur;
 
         for (int i = 0; i < width_of_level; i++)
         {
@@ -2440,7 +2515,7 @@ void PrintInput(TD_N_VI data)
     std::cout << endl;
 }
 
-void CheckResults(TD_N_VI testData, Node* result)
+void CheckResults(TD_N_VI testData, TreeLinkNode* result)
 {
     std::cout << "Output: ";
     PrintData(result);
@@ -2462,26 +2537,26 @@ void CheckResults(TD_N_VI testData, Node* result)
 }
 
 
-Node* GenerateTreeLinkedList(vector<int> v)
+TreeLinkNode* GenerateTreeLinkedList(vector<int> v)
 {
     if (v.size() == 0)
     {
         return nullptr;
     }
-    queue<Node*> nodes;
-    Node* root = new Node(v[0]);
+    queue<TreeLinkNode*> nodes;
+    TreeLinkNode* root = new TreeLinkNode(v[0]);
     nodes.push(root);
 
 
     int count = 1;
     while (!nodes.empty())
     {
-        Node* cur = nodes.front();
+        TreeLinkNode* cur = nodes.front();
         nodes.pop();
 
         if (count < v.size() && v[count] != NULL_NODE_VALUE)
         {
-            Node* node = new Node(v[count]);
+            TreeLinkNode* node = new TreeLinkNode(v[count]);
             cur->left = node;
             nodes.push(node);
         }
@@ -2493,7 +2568,7 @@ Node* GenerateTreeLinkedList(vector<int> v)
 
         if (count < v.size() && v[count] != NULL_NODE_VALUE)
         {
-            Node* node = new Node(v[count]);
+            TreeLinkNode* node = new TreeLinkNode(v[count]);
             cur->right = node;
             nodes.push(node);
         }
@@ -2505,4 +2580,133 @@ Node* GenerateTreeLinkedList(vector<int> v)
     }
 
     return root;
+}
+
+void PrintGraph(GraphNode* start)
+{
+    if (start == nullptr)
+    {
+        return;
+    }
+
+    cout << "{" << endl;
+
+    unordered_set<GraphNode*> new_visited;
+    queue<GraphNode*> pending_vertices;
+    pending_vertices.push(start);
+
+    while (!pending_vertices.empty())
+    {
+        GraphNode* cur_node = pending_vertices.front();
+        pending_vertices.pop();
+
+        cout << cur_node->val << "-";
+        new_visited.insert(cur_node);
+
+        cout << "{";
+        for (int i = 0; i < cur_node->neighbors.size(); i++)
+        {
+            if (new_visited.find(cur_node->neighbors[i]) == new_visited.end())
+            {
+                pending_vertices.push(cur_node->neighbors[i]);
+                //new_visited.insert(cur_node->neighbors[i]);
+            }
+
+            cout<< cur_node->neighbors[i]->val<<" ";
+        }
+
+        cout << "}"<<endl;
+    }
+
+    cout << "}" << endl;
+}
+
+GraphNode* GenerateGraph(vector<vector<int>> v)
+{
+    if (v.size() == 0)
+    {
+        return nullptr;
+    }
+
+    map<int, GraphNode*> new_visited;
+    queue<GraphNode*> pending_vertices;
+
+    GraphNode* new_node = new GraphNode(1);
+    pending_vertices.push(new_node);
+
+    while (!pending_vertices.empty())
+    {
+        GraphNode* cur_node = pending_vertices.front();
+        pending_vertices.pop();
+
+        vector<int> children_val = v[cur_node->val - 1];
+
+        new_visited[cur_node->val] = cur_node;
+
+        for (int i = 0; i < children_val.size(); i++)
+        {
+            if (new_visited.find(children_val[i]) == new_visited.end())
+            {
+                GraphNode* new_child = new GraphNode(children_val[i]);
+                cur_node->neighbors.push_back(new_child);
+
+                pending_vertices.push(new_child);
+
+                new_visited[children_val[i]] = new_child;
+            }
+            else
+            {
+                cur_node->neighbors.push_back(new_visited[children_val[i]]);
+            }
+        }
+    }
+
+    return new_node;
+}
+bool AreSameGraph(GraphNode* p, GraphNode* q)
+{
+    if (!p && !q)
+    {
+        return true;
+    }
+
+    if (!p || !q)
+    {
+        return false;
+    }
+
+    map<GraphNode*, GraphNode*> new_visited;
+    queue<GraphNode*> pending_vertices;
+    pending_vertices.push(p);
+
+    new_visited[p]=q;
+
+    while (!pending_vertices.empty())
+    {
+        GraphNode* cur_p = pending_vertices.front();
+        pending_vertices.pop();
+
+        GraphNode* cur_q = new_visited[cur_p];
+
+        if (cur_p->val != cur_q->val)
+        {
+            return false;
+        }
+
+        if (!AreSameAdjacentList(cur_p->neighbors, cur_q->neighbors))
+        {
+            return false;
+        }
+
+        for (int i = 0; i < cur_p->neighbors.size(); i++)
+        {
+            if (new_visited.find(cur_p->neighbors[i]) == new_visited.end())
+            {
+                pending_vertices.push(cur_p->neighbors[i]);
+                new_visited[cur_p->neighbors[i]] = cur_q->neighbors[i];
+            }
+        }
+    }
+
+    return true;
 }

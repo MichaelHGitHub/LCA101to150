@@ -53,6 +53,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "130_Surrounded_Regions", "1
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "131_Palindrome_Partitioning", "131_Palindrome_Partitioning\131_Palindrome_Partitioning.vcxproj", "{330CDBCF-0303-4565-81D3-FC511DD47D8D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "133_Clone_Graph", "133_Clone_Graph\133_Clone_Graph.vcxproj", "{3411D8AF-DC62-42D3-A774-D5D6A363B896}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -261,6 +263,14 @@ Global
 		{330CDBCF-0303-4565-81D3-FC511DD47D8D}.Release|x64.Build.0 = Release|x64
 		{330CDBCF-0303-4565-81D3-FC511DD47D8D}.Release|x86.ActiveCfg = Release|Win32
 		{330CDBCF-0303-4565-81D3-FC511DD47D8D}.Release|x86.Build.0 = Release|Win32
+		{3411D8AF-DC62-42D3-A774-D5D6A363B896}.Debug|x64.ActiveCfg = Debug|x64
+		{3411D8AF-DC62-42D3-A774-D5D6A363B896}.Debug|x64.Build.0 = Debug|x64
+		{3411D8AF-DC62-42D3-A774-D5D6A363B896}.Debug|x86.ActiveCfg = Debug|Win32
+		{3411D8AF-DC62-42D3-A774-D5D6A363B896}.Debug|x86.Build.0 = Debug|Win32
+		{3411D8AF-DC62-42D3-A774-D5D6A363B896}.Release|x64.ActiveCfg = Release|x64
+		{3411D8AF-DC62-42D3-A774-D5D6A363B896}.Release|x64.Build.0 = Release|x64
+		{3411D8AF-DC62-42D3-A774-D5D6A363B896}.Release|x86.ActiveCfg = Release|Win32
+		{3411D8AF-DC62-42D3-A774-D5D6A363B896}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
