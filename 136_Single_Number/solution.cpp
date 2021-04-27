@@ -8,22 +8,23 @@ int singleNumber(vector<int>& nums)
 
     for (int i = 0; i < nums.size(); i++)
     {
-        if (history.find(nums[i]) == history.end())
+        if (history.find(nums[i]) != history.end())
         {
-            history[nums[i]] = i;
+            history[nums[i]] = history[nums[i]] + 1;
         }
         else
         {
-            nums[history[nums[i]]] = INT32_MIN;
-            nums[i] = INT32_MIN;
+            history[nums[i]] = 1;
         }
     }
 
-    for (int i = 0; i < nums.size(); i++)
+    for (map<int, int>::iterator it = history.begin(); it != history.end(); it++)
     {
-        if (nums[i] != INT32_MIN)
+        if (it->second == 1)
         {
-            return nums[i];
+            return it->first;
         }
     }
+
+    return -1;
 }
