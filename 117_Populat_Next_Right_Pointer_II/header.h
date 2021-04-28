@@ -1,5 +1,7 @@
 #pragma once
 
+#define TREE_LINK_NODE
+
 #include "../common/common.h"
 
 void PrepareTestData(vector<TD_N_VI>& testData);

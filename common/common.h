@@ -5,9 +5,15 @@
 
 using namespace std;
 
-#ifdef GRAPH_PROBLEM
+#ifdef GRAPH_NODE
     #define Node GraphNode
-#else
+#endif
+
+#ifdef RANDOM_LIST_NODE
+    #define Node RandomListNode
+#endif
+
+#ifdef TREE_LINK_NODE
     #define Node TreeLinkNode
 #endif
 
@@ -65,6 +71,22 @@ public:
         neighbors = _neighbors;
     }
 };
+
+
+// Definition for a Node.
+class RandomListNode {
+public:
+    int val;
+    RandomListNode* next;
+    RandomListNode* random;
+
+    RandomListNode(int _val) {
+        val = _val;
+        next = NULL;
+        random = NULL;
+    }
+};
+
 
 #define NULL_NODE_VALUE INT32_MIN-99
 

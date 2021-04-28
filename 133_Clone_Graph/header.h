@@ -1,6 +1,6 @@
 #pragma once
 
-#define GRAPH_PROBLEM
+#define GRAPH_NODE
 
 #include "../common/common.h"
 
