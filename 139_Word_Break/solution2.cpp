@@ -23,10 +23,19 @@ bool helper(string& s, vector<string>& wordDict, map<pair<int, string>, bool>& h
     {
         pair<int, string> p(start, wordDict[i]);
 
+        // If the index(start) has a record in history, that means
+        // the previous interatiob has tried all the posibility starting
+        // from start, then just use the result.
         if (history.find(p) != history.end())
         {
             return history[p];
         }
+
+        // Could be like this as well. looks safer, won't miss any posibility.
+        //if (history.find(p) != history.end() && history[p] == false)
+        //{
+        //    continue;
+        //}
 
         if (s.find(wordDict[i], start) == start)
         {
