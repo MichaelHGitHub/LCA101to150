@@ -1078,6 +1078,58 @@ void CheckResults_Unoder(TD_VS_VVS testData, vector<vector<string>> result)
     std::cout << endl;
 }
 
+void PrintInput(TD_S_VS_VS testData)
+{
+    std::cout << "Input :";
+    PrintData(testData.input);
+    std::cout << endl;
+
+    std::cout << "Input2 :";
+    PrintData(testData.input2);
+    std::cout << endl;
+}
+void CheckResults(TD_S_VS_VS testData, vector<string> result)
+{
+    std::cout << "Output: ";
+    PrintData(result);
+    std::cout << endl;
+
+    if (testData.output == result)
+    {
+        std::cout << "Succeeded!" << endl;
+    }
+    else
+    {
+        std::cout << "***Failed!***" << endl;
+        std::cout << "Expect: ";
+        PrintData(testData.output);
+        std::cout << endl;
+    }
+
+    std::cout << endl;
+}
+
+void CheckResults_Unorder(TD_S_VS_VS testData, vector<string> result)
+{
+    std::cout << "Output: ";
+    PrintData(result);
+    std::cout << endl;
+
+    if (AreVectorEqual(testData.output, result))
+    {
+        std::cout << "Succeeded!" << endl;
+    }
+    else
+    {
+        std::cout << "***Failed!***" << endl;
+        std::cout << "Expect: ";
+        PrintData(testData.output);
+        std::cout << endl;
+    }
+
+    std::cout << endl;
+}
+
 void PrintInput(TD_S_VVS testData)
 {
     std::cout << "Input :";
