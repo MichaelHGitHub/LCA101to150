@@ -112,6 +112,10 @@ void PrintList(ListNode* l);
 ListNode* GenerateLinkedList(vector<int> v);
 bool IsEqualLinkedList(ListNode* l, ListNode* r);
 
+void PrintLoopList(ListNode* l, int loop_index);
+ListNode* GenerateLoopLinkedList(vector<int> v, int loop_index);
+bool IsEqualLoopLinkedList(ListNode* l, ListNode* r);
+
 void PrintTree(TreeNode* root);
 TreeNode* GenerateTree(vector<int> v);
 bool IsSameTree(TreeNode* p, TreeNode* q);
@@ -149,6 +153,13 @@ struct TD_L_I_L
     ListNode* input;
     int input2;
     ListNode* output;
+};
+
+struct TD_CL_B
+{
+    ListNode* input;
+    int loop_index;
+    bool output;
 };
 
 struct TD_L_I_I_L
@@ -668,6 +679,9 @@ void CheckResults(TD_VVC_VVC testData, vector<vector<char>> result);
 
 void PrintInput(TD_L_L testData);
 void CheckResults(TD_L_L testData, ListNode* result);
+
+void PrintInput(TD_CL_B testData);
+void CheckResults(TD_CL_B testData, bool result);
 
 void PrintInput(TD_L_T testData);
 void CheckResults(TD_L_T testData, TreeNode* result);

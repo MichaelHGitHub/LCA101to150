@@ -1916,13 +1916,13 @@ vector<TreeNode*> GenerateTrees(vector<vector<int>> v)
 void PrintInput(TD_L_L testData)
 {
     std::cout << "Input :";
-    PrintList(testData.input);
+    PrintData(testData.input);
     std::cout << endl;
 }
 void CheckResults(TD_L_L testData, ListNode* result)
 {
     std::cout << "Output: ";
-    PrintList(result);
+    PrintData(result);
     std::cout << endl;
 
     if (IsEqualLinkedList(testData.output, result))
@@ -1933,7 +1933,39 @@ void CheckResults(TD_L_L testData, ListNode* result)
     {
         std::cout << "***Failed!***" << endl;
         std::cout << "Expect: " << endl;
-        PrintList(testData.output);
+        PrintData(testData.output);
+        std::cout << endl;
+    }
+
+    std::cout << endl;
+}
+
+void PrintInput(TD_CL_B testData)
+{
+    std::cout << "Input :";
+    PrintLoopList(testData.input, testData.loop_index);
+    std::cout << endl;
+
+    std::cout << "Loop Index :";
+    PrintData(testData.loop_index);
+    std::cout << endl;
+
+}
+void CheckResults(TD_CL_B testData, bool result)
+{
+    std::cout << "Output: ";
+    PrintData(result);
+    std::cout << endl;
+
+    if (testData.output == result)
+    {
+        std::cout << "Succeeded!" << endl;
+    }
+    else
+    {
+        std::cout << "***Failed!***" << endl;
+        std::cout << "Expect: " << endl;
+        PrintData(testData.output);
         std::cout << endl;
     }
 
@@ -2824,4 +2856,93 @@ bool AreSameGraph(GraphNode* p, GraphNode* q)
     }
 
     return true;
+}
+
+
+void PrintLoopList(ListNode* l, int loop_index)
+{
+    if (nullptr == l)
+    {
+        std::cout << "null";
+        return;
+    }
+
+    int counter = 0;
+    ListNode* loop_node = nullptr;
+
+    ListNode* p = l;
+    while (p && p != loop_node)
+    {
+        if (counter == loop_index)
+        {
+            loop_node = p;
+        }
+
+        ++counter;
+
+        std::cout << "[" << p->val << "]";
+        if (p->next)
+        {
+            std::cout << "-";
+        }
+
+        p = p->next;
+    }
+
+    if (p && loop_index != -1)
+    {
+        std::cout << "==>" << loop_node->val << "(index: " << loop_index << ")";
+    }
+    else
+    {
+        std::cout << "==>" << "#";
+    }
+}
+ListNode* GenerateLoopLinkedList(vector<int> v, int loop_index)
+{
+    ListNode* head = GenerateLinkedList(v);
+
+    if (nullptr == head)
+    {
+        return nullptr;
+    }
+
+    int counter = 0;
+    ListNode* loop_node = nullptr;
+
+    if (loop_index == 0)
+    {
+        loop_node = head;
+    }
+
+    ListNode* p = head;
+    while (p)
+    {
+        if (counter == loop_index)
+        {
+            loop_node = p;
+        }
+
+        ++counter;
+
+        if (p->next == nullptr)
+        {
+            break;
+        }
+
+        p = p->next;
+    }
+
+    if (p->next == nullptr)
+    {
+        p->next = loop_node;
+    }
+
+    return head;
+}
+bool IsEqualLoopLinkedList(ListNode* l, ListNode* r)
+{
+    cout << "Not implemented" << endl;
+
+    return false;
 }
