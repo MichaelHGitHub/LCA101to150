@@ -7,19 +7,15 @@ static bool helper(vector<string>& result, string sentence, map<pair<int, string
 // Intuitive plus keeping a seach history to reduce searching numbers.
 vector<string> wordBreak2(string s, vector<string>& wordDict)
 {
-    map<pair<int, string>, bool> history;
-
     vector<string> result;
-
+    map<pair<int, string>, bool> history;
     helper(result, "", history, wordDict, s, 0);
-
     return result;
-
 }
 
 bool helper(vector<string>& result, string sentence, map<pair<int, string>, bool>& history, vector<string>& wordDict, string& s, int start)
 {
-    bool re = false;
+    bool rt = false;
 
     if (start >= s.length())
     {
@@ -42,7 +38,7 @@ bool helper(vector<string>& result, string sentence, map<pair<int, string>, bool
             if (helper(result, sentence + phase, history, wordDict, s, start + wordDict[i].length()))
             {
                 history[p] = true;
-                re = true;
+                rt = true;
             }
             else
             {
@@ -55,5 +51,5 @@ bool helper(vector<string>& result, string sentence, map<pair<int, string>, bool
         }
     }
 
-    return re;
+    return rt;
 }

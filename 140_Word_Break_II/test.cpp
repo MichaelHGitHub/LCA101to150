@@ -18,5 +18,4 @@ void PrepareTestData(vector<TD_S_VS_VS>& testData)
     data.input2 = { "cats","dog","sand","and","cat" };
     data.output = {};
     testData.push_back(data);
-
 }

@@ -4,6 +4,8 @@
 static void helper(vector<string>& result, string sentence, vector<string>& wordDict, string& s, int start);
 
 // Recursive
+// In the recursive call, in stead of interating the given string, we can interate the wordDict,
+// which will greately speed up the searching.
 vector<string> wordBreak(string s, vector<string>& wordDict)
 {
     vector<string> result;
