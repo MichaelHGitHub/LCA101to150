@@ -155,6 +155,13 @@ struct TD_L_I_L
     ListNode* output;
 };
 
+struct TD_CL_L
+{
+    ListNode* input;
+    int loop_index;
+    ListNode* output;
+};
+
 struct TD_CL_B
 {
     ListNode* input;
@@ -682,6 +689,9 @@ void CheckResults(TD_L_L testData, ListNode* result);
 
 void PrintInput(TD_CL_B testData);
 void CheckResults(TD_CL_B testData, bool result);
+
+void PrintInput(TD_CL_L testData);
+void CheckResults(TD_CL_L testData, ListNode* result);
 
 void PrintInput(TD_L_T testData);
 void CheckResults(TD_L_T testData, TreeNode* result);

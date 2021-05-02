@@ -1972,6 +1972,39 @@ void CheckResults(TD_CL_B testData, bool result)
     std::cout << endl;
 }
 
+
+void PrintInput(TD_CL_L testData)
+{
+    std::cout << "Input :";
+    PrintLoopList(testData.input, testData.loop_index);
+    std::cout << endl;
+
+    std::cout << "Loop Index :";
+    PrintData(testData.loop_index);
+    std::cout << endl;
+}
+void CheckResults(TD_CL_L testData, ListNode* result)
+{
+    std::cout << "Output: ";
+    PrintLoopList(result, 0);
+    std::cout << endl;
+
+    if ((testData.output && result && testData.output->val == result->val) || 
+        (!testData.output && !result))
+    {
+        std::cout << "Succeeded!" << endl;
+    }
+    else
+    {
+        std::cout << "***Failed!***" << endl;
+        std::cout << "Expect: " << endl;
+        PrintLoopList(testData.output, 0);
+        std::cout << endl;
+    }
+
+    std::cout << endl;
+}
+
 void PrintInput(TD_T_VI testData)
 {
     std::cout << "Input :";
