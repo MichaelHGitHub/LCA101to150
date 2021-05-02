@@ -75,6 +75,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "143_Reorder_List", "143_Reo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "144_Binary_Tree_PreTraversal", "144_Binary_Tree_PreTraversal\144_Binary_Tree_PreTraversal.vcxproj", "{8F935C20-8CBD-4DB2-8CE9-8CD2F58A380F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "145_Binary_Tree_PostTraversal", "145_Binary_Tree_PostTraversal\145_Binary_Tree_PostTraversal.vcxproj", "{C8DB8D79-4D19-4790-9883-2067692D9B9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -371,6 +373,14 @@ Global
 		{8F935C20-8CBD-4DB2-8CE9-8CD2F58A380F}.Release|x64.Build.0 = Release|x64
 		{8F935C20-8CBD-4DB2-8CE9-8CD2F58A380F}.Release|x86.ActiveCfg = Release|Win32
 		{8F935C20-8CBD-4DB2-8CE9-8CD2F58A380F}.Release|x86.Build.0 = Release|Win32
+		{C8DB8D79-4D19-4790-9883-2067692D9B9D}.Debug|x64.ActiveCfg = Debug|x64
+		{C8DB8D79-4D19-4790-9883-2067692D9B9D}.Debug|x64.Build.0 = Debug|x64
+		{C8DB8D79-4D19-4790-9883-2067692D9B9D}.Debug|x86.ActiveCfg = Debug|Win32
+		{C8DB8D79-4D19-4790-9883-2067692D9B9D}.Debug|x86.Build.0 = Debug|Win32
+		{C8DB8D79-4D19-4790-9883-2067692D9B9D}.Release|x64.ActiveCfg = Release|x64
+		{C8DB8D79-4D19-4790-9883-2067692D9B9D}.Release|x64.Build.0 = Release|x64
+		{C8DB8D79-4D19-4790-9883-2067692D9B9D}.Release|x86.ActiveCfg = Release|Win32
+		{C8DB8D79-4D19-4790-9883-2067692D9B9D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
