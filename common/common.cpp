@@ -969,6 +969,33 @@ void CheckResults(TD_VI_VI_I testData, int result)
     std::cout << endl;
 }
 
+void PrintInput(TD_VS_I testData)
+{
+    std::cout << "Input :";
+    PrintData(testData.input);
+    std::cout << endl;
+}
+void CheckResults(TD_VS_I testData, int result)
+{
+    std::cout << "Output: ";
+    PrintData(result);
+    std::cout << endl;
+
+    if (testData.output == result)
+    {
+        std::cout << "Succeeded!" << endl;
+    }
+    else
+    {
+        std::cout << "***Failed!***" << endl;
+        std::cout << "Expect: ";
+        PrintData(testData.output);
+        std::cout << endl;
+    }
+
+    std::cout << endl;
+}
+
 void PrintInput(TD_VS_S testData)
 {
     std::cout << "Input :";

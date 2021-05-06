@@ -321,6 +321,12 @@ struct TD_S_VS
     vector<string> output;
 };
 
+struct TD_VS_I
+{
+    vector<string> input;
+    int output;
+};
+
 struct TD_VS_S
 {
     vector<string> input;
@@ -611,6 +617,9 @@ void CheckResults(TD_VI_I_B testData, bool result);
 
 void PrintInput(TD_VI_VI_I testData);
 void CheckResults(TD_VI_VI_I testData, int result);
+
+void PrintInput(TD_VS_I testData);
+void CheckResults(TD_VS_I testData, int result);
 
 void PrintInput(TD_VS_S testData);
 void CheckResults(TD_VS_S testData, string result);
