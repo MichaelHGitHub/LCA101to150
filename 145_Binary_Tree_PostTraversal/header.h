@@ -6,4 +6,4 @@ void PrepareTestData(vector<TD_T_VI>& testData);
 
 vector<int> postorderTraversal(TreeNode* root);
 
-vector<int> inorderTraversal(TreeNode* root);
+//vector<int> inorderTraversal(TreeNode* root);
