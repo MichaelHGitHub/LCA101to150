@@ -9,7 +9,7 @@ int main(char* args[], int argc)
     for (int i = 0; i < test_data.size(); i++)
     {
         PrintInput(test_data[i]);
-        bool result = isSymmetric(test_data[i].input);
+        bool result = isSymmetric_r2(test_data[i].input);
 
         CheckResults(test_data[i], result);
     }
