@@ -9,7 +9,7 @@ int main(char* args[], int argc)
     for (int i = 0; i < test_data.size(); i++)
     {
         PrintInput(test_data[i]);
-        TreeNode* result = buildTree3(test_data[i].input, test_data[i].input2);
+        TreeNode* result = buildTree_r(test_data[i].input, test_data[i].input2);
 
         CheckResults(test_data[i], result);
     }
