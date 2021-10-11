@@ -6,3 +6,6 @@ void PrepareTestData(vector<TD_VI_VI_T>& testData);
 
 TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder);
 TreeNode* buildTree2(vector<int>& inorder, vector<int>& postorder);
+
+TreeNode* buildTree_r(vector<int>& inorder, vector<int>& postorder);
+TreeNode* buildTree_r2(vector<int>& inorder, vector<int>& postorder);
