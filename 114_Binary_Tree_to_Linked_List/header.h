@@ -5,3 +5,5 @@
 void PrepareTestData(vector<TD_T_T>& testData);
 void flatten(TreeNode* root);
 void flatten2(TreeNode* root);
+
+void flatten_r(TreeNode* root);
