@@ -1,6 +1,7 @@
 #include <set>
 #include "header.h"
 
+// helper
 static bool isFree(vector<vector<char>>& board, vector<vector<int>>& records, int i, int j, set<pair<int,int>>& visited );
 
 // Brute force, exceeds the time limit of some test case
