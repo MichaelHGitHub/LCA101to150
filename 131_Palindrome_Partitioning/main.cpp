@@ -9,7 +9,7 @@ int main(char* args[], int argc)
     for (int i = 0; i < test_data.size(); i++)
     {
         PrintInput(test_data[i]);
-        vector<vector<string>> result = partition(test_data[i].input);
+        vector<vector<string>> result = partition_r(test_data[i].input);
 
         CheckResults_Unoder(test_data[i], result);
     }
