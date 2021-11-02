@@ -40,13 +40,11 @@ Node* cloneGraph_r(Node* node)
 
                 if (visited.find(cur->neighbors[i]) == visited.end())
                 {
-                    cp_of_cur->neighbors[i] = child;
                     pending.push(cur->neighbors[i]);
                 }
-                else
-                {
-                    cp_of_cur->neighbors[i] = child;
-                }
+
+                cp_of_cur->neighbors[i] = child;
+
             }
             visited.insert(cur);
         }
