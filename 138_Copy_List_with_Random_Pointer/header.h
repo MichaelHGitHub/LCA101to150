@@ -7,3 +7,5 @@
 void PrepareTestData(vector<TD_VI_I>& testData);
 
 Node* copyRandomList(Node* head);
+
+Node* copyRandomList_r(Node* head);
