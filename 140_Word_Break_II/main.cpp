@@ -9,7 +9,7 @@ int main(char* args[], int argc)
     for (int i = 0; i < test_data.size(); i++)
     {
         PrintInput(test_data[i]);
-        vector<string> result = wordBreak2(test_data[i].input, test_data[i].input2);
+        vector<string> result = wordBreak_r(test_data[i].input, test_data[i].input2);
 
         CheckResults_Unorder(test_data[i], result);
     }
