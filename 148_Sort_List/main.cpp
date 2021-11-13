@@ -9,7 +9,7 @@ int main(char* args[], int argc)
     for (int i = 0; i < test_data.size(); i++)
     {
         PrintInput(test_data[i]);
-        ListNode* result = sortList(test_data[i].input);
+        ListNode* result = sortList_r2(test_data[i].input);
 
         CheckResults(test_data[i], result);
     }
